@@ -12,6 +12,16 @@ ControlGUI lets users pick rendered DOM elements, preview CSS and text changes, 
 - Structured annotations including element paths, requested changes and CSS/text differences.
 - BitFun chat-composer attachments; DSH direct annotation delivery.
 
+## Live demo
+
+Real Chromium screenshots from the DSH Web preview sidecar, using the bundled Snake test page (no private workspace or chat data).
+
+| Select an element | Live CSS and text preview | Save a structured annotation |
+| --- | --- | --- |
+| ![Element selection](docs/demo/01-element-selection.png) | ![Live preview](docs/demo/02-live-css-text-preview.png) | ![Saved annotation](docs/demo/03-saved-annotation.png) |
+
+The browser test verified element picking, live CSS and text changes, restoration after saving, numbered annotations, structured submission payloads, and retention on simulated host refusal. The final Agent acceptance and source edit were not exercised in this test. Canvas-drawn objects (such as the Snake game's red food) are not individual DOM nodes and cannot be edited individually with the current picker.
+
 ## Quick start
 
 ### BitFun
