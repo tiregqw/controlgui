@@ -1,0 +1,2 @@
+assets/shared-controlgui.bitfun-plugin.json -text
+adapters/bitfun/controlgui-bitfun.patch -text

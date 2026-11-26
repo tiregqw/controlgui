@@ -1,0 +1,19 @@
+{
+  "name": "@controlgui/core",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test package.test.mjs",
+    "test:dom": "vitest run --maxWorkers=2"
+  },
+  "devDependencies": {
+    "vitest": "4.1.0",
+    "jsdom": "29.0.1",
+    "vite": "7.3.1"
+  }
+}

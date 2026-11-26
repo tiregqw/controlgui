@@ -1,0 +1,20 @@
+# Local developer environment / private data
+.env
+.env.*
+!.env.example
+.dsh/
+projects.local.json
+.host-check.mjs
+node_modules/
+*.log
+*.bak
+*.tmp
+*.swp
+*.pem
+*.key
+*credentials*
+*secret*
+# Release ZIP is generated locally, not committed twice
+dist/
+# Generated JS and source map in lib/ are intentionally INCLUDED:
+# DSH requires lib/client.js when loading the browser plugin.

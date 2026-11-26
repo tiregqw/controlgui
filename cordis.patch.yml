@@ -1,0 +1,5 @@
+# Automatically installed into the selected profile by DSH bundle management.
+# The browser client half is registered through package.json dsh.client.
+- insert:
+    - id: codex-visual-preview
+      name: '@local/dsh-codex-gui'

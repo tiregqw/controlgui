@@ -1,0 +1,8 @@
+{
+  "id": "controlgui",
+  "name": "ControlGUI 网页批注",
+  "version": "0.1.1",
+  "description": "网页元素批注、可视化 CSS 编辑与实时预览",
+  "target": "browser-webview",
+  "defaultEnabled": true
+}

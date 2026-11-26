@@ -1,0 +1,9 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Vue Codex GUI integration</title></head><body><div id="app"></div>
+<script src="/framework.js"></script>
+<script>
+const App={__file:'src/VueApp.vue',setup(){const count=Vue.ref(0);return ()=>Vue.h('main',{},[
+ Vue.h('h1',{},'Vue Preview'),
+ Vue.h('button',{id:'inspect-target','data-source-file':'src/VueApp.vue',onClick:()=>count.value++},'Vue button'),
+ Vue.h('output',{id:'count'},String(count.value))])}};
+Vue.createApp(App).mount('#app');
+</script></body></html>
