@@ -44,7 +44,7 @@
   "description": "Visual annotation and feedback for agent-generated and existing web interfaces",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tiregqw/controlgui-public.git"
+    "url": "git+https://github.com/tiregqw/controlgui.git"
   },
   "engines": {
     "node": ">=24"
