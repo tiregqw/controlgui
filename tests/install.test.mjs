@@ -43,3 +43,20 @@ test('existing legacy plugin row is converted and can be disabled without touchi
   assert.match(second,/- id: another\n  disabled: false/)
  }finally{rmSync(home,{recursive:true,force:true})}
 })
+
+
+test('fresh default empty YAML profile installs, repeats and uninstalls as a valid list',()=>{
+ const {home,file}=createHome('# default empty profile\n[]\n')
+ try{
+  call(home)
+  const installed=readFileSync(file,'utf8')
+  assert.doesNotMatch(installed,/^\s*\[\s*\]\s*$/m)
+  assert.match(installed,/- insert:/)
+  call(home)
+  assert.equal((readFileSync(file,'utf8').match(/- id: codex-visual-preview/g)||[]).length,1)
+  call(home,'--uninstall')
+  const removed=readFileSync(file,'utf8')
+  assert.match(removed,/^\[\]$/m)
+  assert.doesNotMatch(removed,/- id: codex-visual-preview/)
+ }finally{rmSync(home,{recursive:true,force:true})}
+})

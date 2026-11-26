@@ -52,8 +52,18 @@ if (matches.length === 1) {
   else lines.splice(start+1,0,' '.repeat(indentation+2)+`disabled: ${uninstall?'true':'false'}`)
   yaml = lines.join(newline)
 } else if (!uninstall) {
+  // A fresh DSH profile is a comment header followed by an empty YAML list.
+  // Replace that standalone list before appending the first sequence entry.
+  const significant = yaml.split(/\r?\n/u).filter(line => line.trim() && !line.trimStart().startsWith('#'))
+  if (significant.length === 1 && /^\s*\[\s*\]\s*(?:#.*)?$/u.test(significant[0])) {
+    yaml = yaml.split(/\r?\n/u).filter(line => line !== significant[0]).join(newline)
+  }
   yaml = yaml.trimEnd()+newline+newline+begin+newline+'- insert:'+newline+
     '    - id: codex-visual-preview'+newline+`      name: '${name}'`+newline+end+newline
+}
+// Removing the only managed plugin must leave a valid empty sequence.
+if (uninstall && !yaml.split(/\r?\n/u).some(line => line.trim() && !line.trimStart().startsWith('#'))) {
+  yaml = yaml.trimEnd()+newline+'[]'+newline
 }
 const before = await readFile(config, 'utf8')
 if (yaml === before) { console.log('No changes required:', config); process.exit(0) }
